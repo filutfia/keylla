@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Keylla Meriyyam Nurul Haq</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #d4af37;
+            --gold-light: #f1e5ac;
+            --gold-dark: #996515;
+            --charcoal: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fafafa;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Latar Belakang Partikel Emas */
+        #gold-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+        }
+
+        .gold-text {
+            background: linear-gradient(to right, var(--gold-dark), var(--gold-primary), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animasi Muncul */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card Style Premium */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+            transform: translateY(-10px);
+        }
+
+        /* Floating Animation */
+        .float {
+            animation: floatAnim 4s infinite ease-in-out;
+        }
+
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        /* Efek Mengetik */
+        .typing-text::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Efek Kilau pada Hover */
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.6s;
+            z-index: 1;
+        }
+
+        .shine-effect:hover::before {
+            left: 150%;
+        }
+
+        /* Progress Bar Animation */
+        .progress-fill {
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-primary);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Canvas untuk partikel -->
+    <canvas id="gold-particles"></canvas>
+
+    <!-- Header Gold Bar -->
+    <div class="h-1.5 gold-gradient w-full sticky top-0 z-50"></div>
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <!-- Kolom Kiri: Profil -->
+            <aside class="lg:col-span-4 space-y-8 reveal" id="sidebar">
+                <div class="premium-card rounded-3xl p-8 text-center shadow-sm shine-effect">
+                    <div class="relative inline-block mb-6 group">
+                        <div class="w-48 h-48 rounded-full border-4 border-gold-primary p-1 overflow-hidden transition-transform duration-700 group-hover:rotate-6 group-hover:scale-110">
+                            <img src="keylla.jpeg" 
+                                 alt="Foto Keylla Meriyyam" 
+                                 class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="absolute -bottom-2 right-4 gold-gradient text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg float">
+                            <i class="fas fa-crown text-xs"></i>
+                        </div>
+                    </div>
+
+                    <h1 class="gold-text text-3xl font-bold mb-2">
+                        <span id="typing-name" class="typing-text"></span>
+                    </h1>
+                    <p class="text-gray-500 font-medium tracking-widest text-[10px] uppercase mb-6 italic animate-pulse">Customer Service Oriented</p>
+                    
+                    <div class="space-y-4 text-left border-t border-gray-100 pt-6">
+                        <div class="flex items-center gap-4 group cursor-pointer transition-all hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gold-dark group-hover:gold-gradient group-hover:text-white transition-all shadow-sm">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase">Lahir</p>
+                                <p class="text-sm font-medium">19 Desember 2007</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 group cursor-pointer transition-all hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gold-dark group-hover:gold-gradient group-hover:text-white transition-all shadow-sm">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase">Telepon</p>
+                                <p class="text-sm font-medium">0857-9788-3975</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 group cursor-pointer transition-all hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gold-dark group-hover:gold-gradient group-hover:text-white transition-all shadow-sm">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase">Alamat</p>
+                                <p class="text-[11px] leading-relaxed font-medium">Kp. Cigebar, Bojongsari, Bojongsoang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keahlian -->
+                <div class="premium-card rounded-3xl p-8 shadow-sm">
+                    <h3 class="gold-text text-xl font-bold mb-6 border-b border-gold-light pb-2 uppercase tracking-tighter">Keahlian Utama</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gold-light/20 transition-all">
+                            <i class="fas fa-check-circle text-gold-primary group-hover:scale-125 transition-transform"></i>
+                            <span class="text-sm font-medium">Adaptabilitas</span>
+                        </div>
+                        <div class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gold-light/20 transition-all">
+                            <i class="fas fa-check-circle text-gold-primary group-hover:scale-125 transition-transform"></i>
+                            <span class="text-sm font-medium">Komunikatif</span>
+                        </div>
+                        <div class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gold-light/20 transition-all">
+                            <i class="fas fa-check-circle text-gold-primary group-hover:scale-125 transition-transform"></i>
+                            <span class="text-sm font-medium">Bertanggung Jawab</span>
+                        </div>
+                        <div class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gold-light/20 transition-all">
+                            <i class="fas fa-check-circle text-gold-primary group-hover:scale-125 transition-transform"></i>
+                            <span class="text-sm font-medium">Kerjasama Tim</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Kolom Kanan: Detail -->
+            <main class="lg:col-span-8 space-y-8">
+                
+                <!-- Tentang Saya -->
+                <section class="premium-card rounded-3xl p-8 reveal shine-effect">
+                    <h2 class="gold-text text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-user-tie text-gold-dark text-lg float"></i> Tentang Saya
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-sm italic relative z-10">
+                        "Fresh graduate IPS dari SMA KARYA PEMBANGUNAN BALEENDAH yang berorientasi pada pelayanan pelanggan. Senang mempelajari hal-hal baru dan cepat beradaptasi. Memiliki komunikasi yang baik dan keinginan kuat untuk meningkatkan kualitas pelayanan perusahaan agar tercapai kepuasan pelanggan yang maksimal."
+                    </p>
+                </section>
+
+                <!-- Pendidikan -->
+                <section class="premium-card rounded-3xl p-8 reveal">
+                    <h2 class="gold-text text-2xl font-bold mb-10 flex items-center gap-3">
+                        <i class="fas fa-graduation-cap text-gold-dark text-lg"></i> Riwayat Pendidikan
+                    </h2>
+                    <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 before:h-full before:w-0.5 before:bg-gold-light/30">
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-1 w-8 h-8 gold-gradient text-white rounded-full flex items-center justify-center z-10 shadow-lg group-hover:scale-150 transition-all duration-500">
+                                <i class="fas fa-university text-[10px]"></i>
+                            </div>
+                            <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <h4 class="font-bold text-gray-800 text-lg">SMA KARYA PEMBANGUNAN BALEENDAH</h4>
+                                <p class="text-gold-dark text-xs font-bold uppercase tracking-widest mt-1">Lulus Tahun 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-1 w-8 h-8 bg-white border-2 border-gold-primary text-gold-primary rounded-full flex items-center justify-center z-10 shadow-sm group-hover:scale-150 transition-all duration-500">
+                                <i class="fas fa-school text-[10px]"></i>
+                            </div>
+                            <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <h4 class="font-bold text-gray-800">Sekolah Menengah Pertama</h4>
+                                <p class="text-gold-dark text-xs font-bold uppercase tracking-widest mt-1">Lulus Tahun 2023</p>
+                            </div>
+                        </div>
+
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-1 w-8 h-8 bg-white border-2 border-gold-primary text-gold-primary rounded-full flex items-center justify-center z-10 shadow-sm group-hover:scale-150 transition-all duration-500">
+                                <i class="fas fa-book text-[10px]"></i>
+                            </div>
+                            <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <h4 class="font-bold text-gray-800">Sekolah Dasar</h4>
+                                <p class="text-gold-dark text-xs font-bold uppercase tracking-widest mt-1">Lulus Tahun 2019</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hobi & Bahasa -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <section class="premium-card rounded-3xl p-8 reveal shine-effect">
+                        <h3 class="gold-text text-xl font-bold mb-6 flex items-center gap-2">
+                            <i class="fas fa-heart text-gold-dark"></i> Hobi
+                        </h3>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center gap-3 px-5 py-3 bg-gray-50 rounded-2xl border border-gold-light/30 hover:border-gold-primary transition-all group">
+                                <i class="fas fa-utensils text-gold-dark group-hover:rotate-12 transition-transform"></i>
+                                <span class="text-sm font-semibold">Memasak</span>
+                            </div>
+                            <div class="flex items-center gap-3 px-5 py-3 bg-gray-50 rounded-2xl border border-gold-light/30 hover:border-gold-primary transition-all group">
+                                <i class="fas fa-microphone-alt text-gold-dark group-hover:rotate-12 transition-transform"></i>
+                                <span class="text-sm font-semibold">Bernyanyi</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="premium-card rounded-3xl p-8 reveal" id="language-section">
+                        <h3 class="gold-text text-xl font-bold mb-6 flex items-center gap-2">
+                            <i class="fas fa-globe text-gold-dark"></i> Bahasa
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="font-bold uppercase tracking-tighter">Bahasa Indonesia</span>
+                                    <span class="text-gold-dark font-bold">Native</span>
+                                </div>
+                                <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full gold-gradient progress-fill" data-percent="100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Footer -->
+                <div class="text-center py-10 reveal">
+                    <div class="w-24 h-0.5 gold-gradient mx-auto mb-6 rounded-full opacity-50"></div>
+                    <p class="text-gray-400 text-[9px] tracking-[0.5em] uppercase font-bold italic">
+                        Keylla Meriyyam Nurul Haq &bull; MMXXVI &bull; Portofolio
+                    </p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- ANIMASI PARTIKEL EMAS ---
+        const canvas = document.getElementById('gold-particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        // --- ANIMASI MENGETIK ---
+        const nameText = "Keylla Meriyyam";
+        const typingSpeed = 150;
+        let charIndex = 0;
+
+        function typeName() {
+            if (charIndex < nameText.length) {
+                document.getElementById("typing-name").textContent += nameText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeName, typingSpeed);
+            }
+        }
+
+        // --- ANIMASI SCROLL REVEAL & PROGRESS BAR ---
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add("active");
+                    
+                    // Trigger progress bars if the language section is revealed
+                    const progressBars = el.querySelectorAll(".progress-fill");
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute("data-percent");
+                    });
+                }
+            });
+        }
+
+        window.addEventListener("resize", resize);
+        window.addEventListener("scroll", reveal);
+        
+        window.onload = () => {
+            resize();
+            initParticles();
+            animateParticles();
+            typeName();
+            reveal();
+        };
+    </script>
+</body>
+</html>
